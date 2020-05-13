@@ -36,15 +36,15 @@ class MainWindow(qtw.QMainWindow):
         """MainWindowConstructor"""
         super().__init__()
         # Main UI code goes here
-        size_x_default = 800
-        size_y_default = 600
-        lightness_default = 0
-        cent_lambda_default = 560
-        color_bits_start_default = 24
-        color_res_x_default = 10
-        color_res_y_default = 10
-        color_no_start_default = 3
-        color_step_factor_default = 1     
+        size_x_default = int(800)
+        size_y_default = int(600)
+        lightness_default = int(0)
+        cent_lambda_default = int(560)
+        color_bits_start_default = int(24)
+        color_res_x_default = int(10)
+        color_res_y_default = int(10)
+        color_no_start_default = int(3)
+        color_step_factor_default = int(1)     
         self.debug = False
 
         self.setWindowTitle('ComputerRainbow')

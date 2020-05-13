@@ -45,12 +45,25 @@ class MainWindow(qtw.QMainWindow):
         color_res_y_default = int(10)
         color_no_start_default = int(3)
         color_step_factor_default = int(1)     
+        size_x_name = "size_x"
+        size_y_name = "size_y"
+        lightness_name = "lightness"
+        cent_lambda_name = "cent_lambda"
+        color_bits_start_name = "color_bits_start"
+        color_res_x_name = "color_res_x"
+        color_res_y_name = "color_res_y"
+        color_no_start_name = "color_no_start"
+        color_step_factor_name = "color_step_factor"
+        settings_list = lightness_name, cent_lambda_name, color_bits_start_name, color_res_x_name, color_res_y_name, color_no_start_name, color_step_factor_name
+
         self.debug = False
 
         self.setWindowTitle('ComputerRainbow')
         self.setWindowIcon(qtg.QIcon(':/icons/icon.png'))
 
         self.settings = qtc.QSettings('NAITA Software', 'ComputerRainbow')
+
+        
 
         # Set default values if the appropriate settings are not in the system
 
@@ -75,7 +88,7 @@ class MainWindow(qtw.QMainWindow):
         # changing the settings object changes values continuously in the registry
         # so we create a dictionary to use in the program
         self.current_settings = dict()
-        for key in self.settings.allKeys():
+        for key in settings_list:
             self.current_settings[key] = self.settings.value(key, type=int)
         
         # Put together the elements of the central widget in a QWidget

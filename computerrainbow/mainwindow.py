@@ -54,7 +54,7 @@ class MainWindow(qtw.QMainWindow):
         color_res_y_name = "color_res_y"
         color_no_start_name = "color_no_start"
         color_step_factor_name = "color_step_factor"
-        settings_list = size_x_name, size_y_name, lightness_name, cent_lambda_name, color_bits_start_name, color_res_x_name, color_res_y_name, color_no_start_name, color_step_factor_name
+        self.settings_list = size_x_name, size_y_name, lightness_name, cent_lambda_name, color_bits_start_name, color_res_x_name, color_res_y_name, color_no_start_name, color_step_factor_name
 
         self.debug = False
 
@@ -67,7 +67,7 @@ class MainWindow(qtw.QMainWindow):
 
         # Set default values if the appropriate settings are not in the system
 
-        if len(self.settings.allKeys()) < 9:
+        if not self.settings.value('size_x', type=int):
             self.settings.setValue('size_x', size_x_default)
             self.settings.setValue('size_y', size_y_default)
             self.settings.setValue('lightness', lightness_default) 
@@ -88,12 +88,11 @@ class MainWindow(qtw.QMainWindow):
         # changing the settings object changes values continuously in the registry
         # so we create a dictionary to use in the program
         self.current_settings = dict()
-        for key in settings_list:
+        for key in self.settings_list:
             self.current_settings[key] = self.settings.value(key, type=int)
         
         # Put together the elements of the central widget in a QWidget
         central_widget = qtw.QWidget(self)
-
         # First create the different controls and images
         self.image = qtg.QImage(self.current_settings['size_x'], 
                                 self.current_settings['size_y'],
@@ -328,7 +327,7 @@ class MainWindow(qtw.QMainWindow):
     def show_pref_dialog(self):
         settings_dialog = SettingsDialog(self, self.settings, self.current_settings)
         if settings_dialog.exec():
-            for key in self.settings.allKeys():
+            for key in self.settings_list:
                 self.current_settings[key] = self.settings.value(key, type=int)
             self.update_active_settings()
             self.changed.emit(self.current_settings)

@@ -55,7 +55,7 @@ class RainbowModel(qtc.QObject):
         size_y = settings["size_y"]
 
         rendering_image = self.current_image.convertToFormat(
-                                    qtg.QImage.Format_Grayscale16
+                                    qtg.QImage.Format_Grayscale8
                                     )
         painter = qtg.QPainter(rendering_image)
         painter.setFont(qtg.QFont("Helvetica", pointSize = 32))

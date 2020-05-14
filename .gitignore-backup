@@ -1,9 +1,6 @@
-﻿.idea/
+.idead/
 .vscode/
 __pycache__/
 build/
 dist/
 venv/
-.idea
-*.spec
-*.pyc

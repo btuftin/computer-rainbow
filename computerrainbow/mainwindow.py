@@ -54,7 +54,7 @@ class MainWindow(qtw.QMainWindow):
         color_res_y_name = "color_res_y"
         color_no_start_name = "color_no_start"
         color_step_factor_name = "color_step_factor"
-        settings_list = lightness_name, cent_lambda_name, color_bits_start_name, color_res_x_name, color_res_y_name, color_no_start_name, color_step_factor_name
+        settings_list = size_x_name, size_y_name, lightness_name, cent_lambda_name, color_bits_start_name, color_res_x_name, color_res_y_name, color_no_start_name, color_step_factor_name
 
         self.debug = False
 
@@ -331,4 +331,4 @@ class MainWindow(qtw.QMainWindow):
             for key in self.settings.allKeys():
                 self.current_settings[key] = self.settings.value(key, type=int)
             self.update_active_settings()
-        self.changed.emit(self.current_settings)
+            self.changed.emit(self.current_settings)

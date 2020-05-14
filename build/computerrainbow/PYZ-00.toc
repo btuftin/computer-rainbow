@@ -802,4 +802,6 @@
    'C:\\Users\\bjorn\\Documents\\Python '
    'Scripts\\Projects\\ComputerRainbow\\computerrainbow\\rainbow_model.py',
    'PYMODULE'),
-  ('PyQt5', '-', 'PYMODULE')])
+  ('PyQt5',
+   'c:\\users\\bjorn\\appdata\\local\\programs\\python\\python38-32\\lib\\site-packages\\PyQt5\\__init__.py',
+   'PYMODULE')])

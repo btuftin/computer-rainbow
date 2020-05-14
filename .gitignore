@@ -1,6 +1,7 @@
-.idead/
+﻿.idea/
 .vscode/
 __pycache__/
 build/
 dist/
 venv/
+*.pyc
